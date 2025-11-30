@@ -1,0 +1,73 @@
+2025-11-30 12:07:10,934 - database - INFO - ✅ База данных инициализирована
+2025-11-30 12:07:10,934 - __main__ - INFO - 🚀 Starting Universal Birthday & Tags Bot...
+2025-11-30 12:07:11,435 - __main__ - INFO - ✅ Scheduler thread started
+2025-11-30 12:07:11,435 - __main__ - INFO - ✅ Starting Universal Bot...
+2025-11-30 12:07:12,148 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8581961551:AAGFlhCEzZc3k6veVoU3QTOJ41YVyTGEw6o/getMe "HTTP/1.1 200 OK"
+2025-11-30 12:07:12,393 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8581961551:AAGFlhCEzZc3k6veVoU3QTOJ41YVyTGEw6o/setMyCommands "HTTP/1.1 200 OK"
+2025-11-30 12:07:12,394 - __main__ - INFO - ✅ Bot commands setup completed
+2025-11-30 12:07:12,394 - __main__ - INFO - 🚀 Universal Bot is ready and running!
+2025-11-30 12:07:12,557 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8581961551:AAGFlhCEzZc3k6veVoU3QTOJ41YVyTGEw6o/deleteWebhook "HTTP/1.1 200 OK"
+2025-11-30 12:07:12,558 - telegram.ext.Application - INFO - Application started
+2025-11-30 12:07:21,435 - __main__ - INFO - ✅ Scheduler started
+2025-11-30 12:07:21,436 - __main__ - INFO - 🔍 Проверка дней рождения...
+2025-11-30 12:07:21,437 - database - INFO - 🎯 Найдено дней рождения на завтра: 4
+2025-11-30 12:07:21,439 - database - INFO - 🎯 Найдено дней рождения на сегодня: 3
+2025-11-30 12:07:23,040 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8581961551:AAGFlhCEzZc3k6veVoU3QTOJ41YVyTGEw6o/getUpdates "HTTP/1.1 200 OK"
+2025-11-30 12:07:33,181 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8581961551:AAGFlhCEzZc3k6veVoU3QTOJ41YVyTGEw6o/getUpdates "HTTP/1.1 200 OK"
+2025-11-30 12:07:43,324 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8581961551:AAGFlhCEzZc3k6veVoU3QTOJ41YVyTGEw6o/getUpdates "HTTP/1.1 200 OK"
+2025-11-30 12:07:53,467 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8581961551:AAGFlhCEzZc3k6veVoU3QTOJ41YVyTGEw6o/getUpdates "HTTP/1.1 200 OK"
+2025-11-30 12:08:03,576 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8581961551:AAGFlhCEzZc3k6veVoU3QTOJ41YVyTGEw6o/getUpdates "HTTP/1.1 200 OK"
+2025-11-30 12:08:13,704 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8581961551:AAGFlhCEzZc3k6veVoU3QTOJ41YVyTGEw6o/getUpdates "HTTP/1.1 200 OK"
+2025-11-30 12:08:23,822 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8581961551:AAGFlhCEzZc3k6veVoU3QTOJ41YVyTGEw6o/getUpdates "HTTP/1.1 200 OK"
+2025-11-30 12:08:33,945 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8581961551:AAGFlhCEzZc3k6veVoU3QTOJ41YVyTGEw6o/getUpdates "HTTP/1.1 200 OK"
+2025-11-30 12:08:38,425 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8581961551:AAGFlhCEzZc3k6veVoU3QTOJ41YVyTGEw6o/getUpdates "HTTP/1.1 200 OK"
+2025-11-30 12:08:38,866 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8581961551:AAGFlhCEzZc3k6veVoU3QTOJ41YVyTGEw6o/sendMessage "HTTP/1.1 200 OK"
+2025-11-30 12:08:38,867 - __main__ - INFO - ✅ Sent mention for group: команда
+2025-11-30 12:08:43,736 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8581961551:AAGFlhCEzZc3k6veVoU3QTOJ41YVyTGEw6o/getUpdates "HTTP/1.1 200 OK"
+2025-11-30 12:08:43,911 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8581961551:AAGFlhCEzZc3k6veVoU3QTOJ41YVyTGEw6o/sendMessage "HTTP/1.1 200 OK"
+2025-11-30 12:08:46,876 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8581961551:AAGFlhCEzZc3k6veVoU3QTOJ41YVyTGEw6o/getUpdates "HTTP/1.1 200 OK"
+2025-11-30 12:08:47,136 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8581961551:AAGFlhCEzZc3k6veVoU3QTOJ41YVyTGEw6o/sendMessage "HTTP/1.1 200 OK"
+2025-11-30 12:08:48,814 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8581961551:AAGFlhCEzZc3k6veVoU3QTOJ41YVyTGEw6o/getUpdates "HTTP/1.1 200 OK"
+2025-11-30 12:08:49,019 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8581961551:AAGFlhCEzZc3k6veVoU3QTOJ41YVyTGEw6o/sendMessage "HTTP/1.1 200 OK"
+2025-11-30 12:08:58,943 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8581961551:AAGFlhCEzZc3k6veVoU3QTOJ41YVyTGEw6o/getUpdates "HTTP/1.1 200 OK"
+2025-11-30 12:09:05,117 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8581961551:AAGFlhCEzZc3k6veVoU3QTOJ41YVyTGEw6o/getUpdates "HTTP/1.1 200 OK"
+2025-11-30 12:09:05,376 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8581961551:AAGFlhCEzZc3k6veVoU3QTOJ41YVyTGEw6o/getUpdates "HTTP/1.1 200 OK"
+2025-11-30 12:09:15,491 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8581961551:AAGFlhCEzZc3k6veVoU3QTOJ41YVyTGEw6o/getUpdates "HTTP/1.1 200 OK"
+2025-11-30 12:09:25,652 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8581961551:AAGFlhCEzZc3k6veVoU3QTOJ41YVyTGEw6o/getUpdates "HTTP/1.1 200 OK"
+2025-11-30 12:09:27,092 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8581961551:AAGFlhCEzZc3k6veVoU3QTOJ41YVyTGEw6o/getUpdates "HTTP/1.1 200 OK"
+2025-11-30 12:09:27,269 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8581961551:AAGFlhCEzZc3k6veVoU3QTOJ41YVyTGEw6o/getUpdates "HTTP/1.1 200 OK"
+2025-11-30 12:09:32,381 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8581961551:AAGFlhCEzZc3k6veVoU3QTOJ41YVyTGEw6o/getUpdates "HTTP/1.1 200 OK"
+2025-11-30 12:09:37,924 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8581961551:AAGFlhCEzZc3k6veVoU3QTOJ41YVyTGEw6o/getUpdates "HTTP/1.1 200 OK"
+2025-11-30 12:09:38,643 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8581961551:AAGFlhCEzZc3k6veVoU3QTOJ41YVyTGEw6o/sendMessage "HTTP/1.1 200 OK"
+2025-11-30 12:09:46,602 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8581961551:AAGFlhCEzZc3k6veVoU3QTOJ41YVyTGEw6o/getUpdates "HTTP/1.1 200 OK"
+2025-11-30 12:09:47,235 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8581961551:AAGFlhCEzZc3k6veVoU3QTOJ41YVyTGEw6o/sendMessage "HTTP/1.1 200 OK"
+2025-11-30 12:09:56,826 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8581961551:AAGFlhCEzZc3k6veVoU3QTOJ41YVyTGEw6o/getUpdates "HTTP/1.1 200 OK"
+2025-11-30 12:10:01,318 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8581961551:AAGFlhCEzZc3k6veVoU3QTOJ41YVyTGEw6o/getUpdates "HTTP/1.1 200 OK"
+2025-11-30 12:10:01,321 - database - INFO - ✅ День рождения сохранен для user_id: 5085910633
+2025-11-30 12:10:01,853 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8581961551:AAGFlhCEzZc3k6veVoU3QTOJ41YVyTGEw6o/sendMessage "HTTP/1.1 200 OK"
+2025-11-30 12:10:11,433 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8581961551:AAGFlhCEzZc3k6veVoU3QTOJ41YVyTGEw6o/getUpdates "HTTP/1.1 200 OK"
+2025-11-30 12:10:21,569 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8581961551:AAGFlhCEzZc3k6veVoU3QTOJ41YVyTGEw6o/getUpdates "HTTP/1.1 200 OK"
+2025-11-30 12:10:31,703 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8581961551:AAGFlhCEzZc3k6veVoU3QTOJ41YVyTGEw6o/getUpdates "HTTP/1.1 200 OK"
+2025-11-30 12:10:41,864 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8581961551:AAGFlhCEzZc3k6veVoU3QTOJ41YVyTGEw6o/getUpdates "HTTP/1.1 200 OK"
+2025-11-30 12:10:52,003 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8581961551:AAGFlhCEzZc3k6veVoU3QTOJ41YVyTGEw6o/getUpdates "HTTP/1.1 200 OK"
+2025-11-30 12:10:57,891 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8581961551:AAGFlhCEzZc3k6veVoU3QTOJ41YVyTGEw6o/getUpdates "HTTP/1.1 200 OK"
+2025-11-30 12:10:58,248 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8581961551:AAGFlhCEzZc3k6veVoU3QTOJ41YVyTGEw6o/sendMessage "HTTP/1.1 200 OK"
+2025-11-30 12:11:08,074 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8581961551:AAGFlhCEzZc3k6veVoU3QTOJ41YVyTGEw6o/getUpdates "HTTP/1.1 200 OK"
+2025-11-30 12:11:16,912 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8581961551:AAGFlhCEzZc3k6veVoU3QTOJ41YVyTGEw6o/getUpdates "HTTP/1.1 200 OK"
+2025-11-30 12:11:16,917 - database - INFO - ✅ День рождения сохранен для user_id: 6984078946
+2025-11-30 12:11:17,476 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8581961551:AAGFlhCEzZc3k6veVoU3QTOJ41YVyTGEw6o/sendMessage "HTTP/1.1 200 OK"
+2025-11-30 12:11:27,065 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8581961551:AAGFlhCEzZc3k6veVoU3QTOJ41YVyTGEw6o/getUpdates "HTTP/1.1 200 OK"
+2025-11-30 12:11:37,215 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8581961551:AAGFlhCEzZc3k6veVoU3QTOJ41YVyTGEw6o/getUpdates "HTTP/1.1 200 OK"
+2025-11-30 12:11:47,368 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8581961551:AAGFlhCEzZc3k6veVoU3QTOJ41YVyTGEw6o/getUpdates "HTTP/1.1 200 OK"
+2025-11-30 12:11:57,515 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8581961551:AAGFlhCEzZc3k6veVoU3QTOJ41YVyTGEw6o/getUpdates "HTTP/1.1 200 OK"
+2025-11-30 12:12:07,638 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8581961551:AAGFlhCEzZc3k6veVoU3QTOJ41YVyTGEw6o/getUpdates "HTTP/1.1 200 OK"
+2025-11-30 12:12:17,758 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8581961551:AAGFlhCEzZc3k6veVoU3QTOJ41YVyTGEw6o/getUpdates "HTTP/1.1 200 OK"
+2025-11-30 12:12:21,443 - __main__ - INFO - 🔍 Проверка дней рождения...
+2025-11-30 12:12:21,444 - database - INFO - 🎯 Найдено дней рождения на завтра: 5
+2025-11-30 12:12:21,928 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8581961551:AAGFlhCEzZc3k6veVoU3QTOJ41YVyTGEw6o/getUpdates "HTTP/1.1 200 OK"
+2025-11-30 12:12:21,929 - telegram.ext.Application - INFO - Application is stopping. This might take a moment.
+2025-11-30 12:12:21,929 - telegram.ext.Application - INFO - Application.stop() complete
+2025-11-30 12:12:21,929 - __main__ - WARNING - Cannot send DM to user 6984078946: httpx.ReadError: 
+2025-11-30 12:12:21,929 - __main__ - CRITICAL - ❌ Bot crashed: invalid state
+2025-11-30 12:12:21,930 - __main__ - ERROR - Cannot send reminder to group either: Unknown error in HTTP implementation: RuntimeError('This HTTPXRequest is not initialized!')
+2025-11-30 12:12:21,930 - __main__ - CRITICAL - ❌ Failed to start bot: invalid state
