@@ -52,7 +52,7 @@ groups_data = {
     ],
     "смм": [
         {"username": "KystVDele"},
-        {"username": "@HanjiS_live"},
+        {"username": "HanjiS_live"},
     ],
     "хуёжник": [
         {"username": "TaiBurs"},
@@ -707,5 +707,6 @@ def main():
 
 if __name__ == '__main__':
     main()
+
 
 
