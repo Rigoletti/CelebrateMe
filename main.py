@@ -261,7 +261,7 @@ class UniversalBot:
         self.application.add_handler(CommandHandler("help", self.help_command))
         self.application.add_handler(CommandHandler("cancel", self.cancel_command))
 
-        # Обработчик сообщений для тегов
+        # Обработчик сообщений для тегов - ИСПРАВЛЕННЫЙ
         self.application.add_handler(MessageHandler(
             filters.TEXT & ~filters.COMMAND,
             self.handle_message
@@ -519,24 +519,38 @@ class UniversalBot:
         return " ".join(mentions)
 
     async def handle_message(self, update: Update, context: ContextTypes.DEFAULT_TYPE):
-        """Обработка сообщений с мгновенными тегами"""
-        # МГНОВЕННАЯ обработка тегов
+        """Обработка сообщений с мгновенными тегами - ИСПРАВЛЕННЫЙ ВАРИАНТ"""
         if update.message and update.message.text:
             message_text = update.message.text
+            message_lower = message_text.lower()
 
             for group_name in groups_data.keys():
                 trigger_word = f"@{group_name}"
-                if trigger_word in message_text.lower():
+                if trigger_word in message_lower:
                     mention_text = self.create_group_mention(group_name)
                     if mention_text:
-                        # Отвечаем моментально в том же чате
+                        # ВАЖНОЕ ИСПРАВЛЕНИЕ: Добавляем текст перед упоминаниями
+                        response_text = f"🏷️ <b>Тег группы:</b> {group_name}\n\n{mention_text}"
+
                         try:
                             await update.message.reply_text(
-                                mention_text,
-                                reply_to_message_id=update.message.message_id
+                                response_text,
+                                reply_to_message_id=update.message.message_id,
+                                parse_mode='HTML'
                             )
                         except Exception as e:
-                            logger.error(f"Error sending mention: {e}")
+                            logger.error(f"Error sending mention with HTML: {e}")
+                            # Если не сработало с HTML, пробуем без него
+                            try:
+                                response_text = f"🏷️ Тег группы: {group_name}\n\n{mention_text}"
+                                await update.message.reply_text(
+                                    response_text,
+                                    reply_to_message_id=update.message.message_id
+                                )
+                            except Exception as e2:
+                                logger.error(f"Error sending mention without HTML: {e2}")
+
+                    # Прерываем после первого найденного тега
                     break
 
     async def help_command(self, update: Update, context: ContextTypes.DEFAULT_TYPE):
@@ -707,6 +721,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-
-
-
