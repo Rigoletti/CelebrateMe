@@ -24,40 +24,87 @@ print("🚀 Запуск объединенного бота...")
 # Состояния для ConversationHandler
 SET_BIRTHDAY = 1
 
-# Данные для тегов
+# Данные для тегов с альтернативными написаниями
 groups_data = {
-    "команда": [
-        {"username": "welIweIIweIl"},
-        {"username": "Viper_DQ"},
-        {"username": "winterwort"},
-        {"username": "zhukov_nes"},
-        {"username": "SHAHmirozdanie"}
-    ],
-    "тренер": [
-        {"username": "Dedusmlbb"},
-        {"username": "Margul95"}
-    ],
-    "начальник": [
-        {"username": "rickreygan"},
-        {"username": "qqueasiness"}
-    ],
-    "аналитик": [
-        {"username": "KeepOnDaaancing"},
-    ],
-    "менеджер": [
-        {"username": "PredatoryIrbis"},
-    ],
-    "психолог": [
-        {"username": "Rygen_ml"},
-    ],
-    "смм": [
-        {"username": "KystVDele"},
-        {"username": "HanjiS_live"},
-    ],
-    "хуёжник": [
-        {"username": "TaiBurs"},
-    ]
+    "команда": {
+        "members": [
+            {"username": "welIweIIweIl"},
+            {"username": "Viper_DQ"},
+            {"username": "winterwort"},
+            {"username": "zhukov_nes"},
+            {"username": "SHAHmirozdanie"}
+        ],
+        "aliases": ["команд", "команду"]  # Альтернативные написания
+    },
+    "тренер": {
+        "members": [
+            {"username": "Dedusmlbb"},
+            {"username": "Margul95"}
+        ],
+        "aliases": ["тренера", "тренеры", "тренеров"]
+    },
+    "начальник": {
+        "members": [
+            {"username": "rickreygan"},
+            {"username": "qqueasiness"}
+        ],
+        "aliases": ["начальники", "начальников", "начальству"]
+    },
+    "аналитик": {
+        "members": [
+            {"username": "KeepOnDaaancing"},
+        ],
+        "aliases": ["аналитики", "аналитиков", "аналитикам"]
+    },
+    "менеджер": {
+        "members": [
+            {"username": "PredatoryIrbis"},
+        ],
+        "aliases": ["менеджеры", "менеджеров", "менеджерам"]
+    },
+    "психолог": {
+        "members": [
+            {"username": "Rygen_ml"},
+        ],
+        "aliases": ["психологи", "психологов", "психологам"]
+    },
+    "смм": {
+        "members": [
+            {"username": "KystVDele"},
+            {"username": "HanjiS_live"},
+        ],
+        "aliases": ["смим", "смима", "сммам"]
+    },
+    "хуёжник": {
+        "members": [
+            {"username": "TaiBurs"},
+        ],
+        "aliases": ["хуежник", "хуёжники", "хуежники", "хуёжников", "хуежников"]
+    },
+    "стафф": {
+        "members": [
+            {"username": "rickreygan"},
+            {"username": "Margul95"},
+            {"username": "qqueasiness"},
+            {"username": "TaiBurs"},
+            {"username": "PredatoryIrbis"},
+            {"username": "KeepOnDaaancing"},
+            {"username": "KystVDele"},
+            {"username": "Dedusmlbb"},
+            {"username": "Rygen_ml"}
+        ],
+        "aliases": ["стаф", "стафу", "стафом", "штаб", "штабу", "штабом"]
+    }
 }
+
+# Словарь для быстрого поиска группы по любому из имен
+group_mapping = {}
+for group_name, group_info in groups_data.items():
+    # Основное имя
+    group_mapping[group_name] = group_name
+    # Альтернативные имена
+    for alias in group_info["aliases"]:
+        group_mapping[alias] = group_name
 
 
 class Database:
@@ -297,7 +344,8 @@ class UniversalBot:
                 "• Список всех дней рождения\n\n"
                 "🏷️ <b>Теги:</b>\n"
                 "• Быстрое упоминание групп\n"
-                "• @команда, @тренер, @начальник и др.\n\n"
+                "• @команда, @тренер, @стафф и др.\n"
+                "• Поддерживает разные написания: @стафф, @стаф, @штаб\n\n"
                 "📌 <b>Добавьте меня в группу</b> для полного функционала!\n\n"
                 "📋 Команды: /help",
                 parse_mode='HTML'
@@ -311,9 +359,10 @@ class UniversalBot:
                 "• Поздравлять именинников\n"
                 "• Хранить список ДР\n\n"
                 "🏷️ <b>Упоминать группы:</b>\n"
-                "• @команда - упомянуть команду\n"
-                "• @тренер - упомянуть тренеров\n"
-                "• И другие теги\n\n"
+                "• @команда - упомянуть команду (также @команд, @команду)\n"
+                "• @тренер - упомянуть тренеров (также @тренера, @тренеры)\n"
+                "• @стафф - упомянуть стафф (также @стаф, @штаб)\n"
+                "• И другие теги с альтернативными написаниями\n\n"
                 "📋 <b>Основные команды:</b>\n"
                 "/set_birthday - установить ДР\n"
                 "/birthdays - список ДР\n"
@@ -494,64 +543,118 @@ class UniversalBot:
     async def groups_command(self, update: Update, context: ContextTypes.DEFAULT_TYPE):
         """Показать состав групп"""
         groups_text = "👥 <b>Состав групп:</b>\n\n"
-        for group_name, members in groups_data.items():
+        for group_name, group_info in groups_data.items():
             groups_text += f"<b>{group_name.upper()}:</b>\n"
+            members = group_info["members"]
             for i, member in enumerate(members, 1):
                 groups_text += f"{i}. @{member['username']}\n"
+
+            # Показываем альтернативные написания
+            if group_info.get("aliases"):
+                aliases = group_info["aliases"]
+                groups_text += f"   🔄 Также: "
+                groups_text += ", ".join([f"@{alias}" for alias in aliases[:3]])
+                if len(aliases) > 3:
+                    groups_text += f" и ещё {len(aliases) - 3}"
+                groups_text += "\n"
+
             groups_text += "\n"
+
+        groups_text += "💡 <b>Использование:</b> Напишите в чате @название_группы\n"
+        groups_text += "Примеры: @стафф, @стаф, @штаб (все ведут к одной группе)"
         await update.message.reply_text(groups_text, parse_mode='HTML')
 
     async def tags_command(self, update: Update, context: ContextTypes.DEFAULT_TYPE):
         """Показать доступные теги"""
         tags_text = "🏷️ <b>Доступные теги:</b>\n\n"
-        tags_text += "Просто напишите в чате:\n"
+        tags_text += "<b>Основные названия:</b>\n"
         for group_name in groups_data.keys():
             tags_text += f"• @{group_name}\n"
-        tags_text += "\n🤖 Я автоматически упомяну всех участников группы!"
+
+        tags_text += "\n<b>Альтернативные написания:</b>\n"
+        for group_name, group_info in groups_data.items():
+            if group_info.get("aliases"):
+                aliases = group_info["aliases"]
+                if aliases:
+                    tags_text += f"• @{group_name} → также: "
+                    tags_text += ", ".join([f"@{alias}" for alias in aliases[:3]])
+                    if len(aliases) > 3:
+                        tags_text += f" и ещё {len(aliases) - 3}"
+                    tags_text += "\n"
+
+        tags_text += "\n🤖 <b>Примеры использования:</b>\n"
+        tags_text += "• @стафф, @стаф, @штаб - упоминают стафф\n"
+        tags_text += "• @тренер, @тренера, @тренеры - упоминают тренеров\n"
+        tags_text += "• @хуёжник, @хуежник - упоминают хуёжника\n\n"
+        tags_text += "💡 <b>Просто напишите в чате нужный тег!</b>"
         await update.message.reply_text(tags_text, parse_mode='HTML')
+
+    def find_group_by_tag(self, tag: str) -> str:
+        """Найти группу по тегу (основному или альтернативному)"""
+        # Убираем символ @ если он есть
+        tag_clean = tag.lower().lstrip('@')
+
+        # Прямой поиск в маппинге
+        if tag_clean in group_mapping:
+            return group_mapping[tag_clean]
+
+        # Поиск с окончаниями (для русских слов)
+        possible_endings = ["", "а", "у", "ов", "ам", "ами", "ах", "и", "ы"]
+        for ending in possible_endings:
+            test_tag = tag_clean
+            if not test_tag.endswith(ending):
+                test_tag = tag_clean + ending
+            if test_tag in group_mapping:
+                return group_mapping[test_tag]
+
+        return None
 
     def create_group_mention(self, group_name: str) -> str:
         """Создание упоминания группы"""
         if group_name not in groups_data:
             return ""
-        members = groups_data[group_name]
+        members = groups_data[group_name]["members"]
         mentions = [f"@{member['username']}" for member in members if member['username']]
         return " ".join(mentions)
 
     async def handle_message(self, update: Update, context: ContextTypes.DEFAULT_TYPE):
-        """Обработка сообщений с мгновенными тегами - ИСПРАВЛЕННЫЙ ВАРИАНТ"""
+        """Обработка сообщений с мгновенными тегами"""
         if update.message and update.message.text:
             message_text = update.message.text
-            message_lower = message_text.lower()
 
-            for group_name in groups_data.keys():
-                trigger_word = f"@{group_name}"
-                if trigger_word in message_lower:
-                    mention_text = self.create_group_mention(group_name)
-                    if mention_text:
-                        # ВАЖНОЕ ИСПРАВЛЕНИЕ: Добавляем текст перед упоминаниями
-                        response_text = f"🏷️ <b>Тег группы:</b> {group_name}\n\n{mention_text}"
+            # Разбиваем сообщение на слова и проверяем каждое слово
+            words = message_text.split()
+            for word in words:
+                # Проверяем, начинается ли слово с @
+                if word.startswith('@'):
+                    # Ищем группу по тегу
+                    group_name = self.find_group_by_tag(word)
 
-                        try:
-                            await update.message.reply_text(
-                                response_text,
-                                reply_to_message_id=update.message.message_id,
-                                parse_mode='HTML'
-                            )
-                        except Exception as e:
-                            logger.error(f"Error sending mention with HTML: {e}")
-                            # Если не сработало с HTML, пробуем без него
+                    if group_name:
+                        mention_text = self.create_group_mention(group_name)
+                        if mention_text:
+                            response_text = f"🏷️ <b>Тег группы:</b> {group_name}\n\n{mention_text}"
+
                             try:
-                                response_text = f"🏷️ Тег группы: {group_name}\n\n{mention_text}"
                                 await update.message.reply_text(
                                     response_text,
-                                    reply_to_message_id=update.message.message_id
+                                    reply_to_message_id=update.message.message_id,
+                                    parse_mode='HTML'
                                 )
-                            except Exception as e2:
-                                logger.error(f"Error sending mention without HTML: {e2}")
+                            except Exception as e:
+                                logger.error(f"Error sending mention with HTML: {e}")
+                                # Если не сработало с HTML, пробуем без него
+                                try:
+                                    response_text = f"🏷️ Тег группы: {group_name}\n\n{mention_text}"
+                                    await update.message.reply_text(
+                                        response_text,
+                                        reply_to_message_id=update.message.message_id
+                                    )
+                                except Exception as e2:
+                                    logger.error(f"Error sending mention without HTML: {e2}")
 
-                    # Прерываем после первого найденного тега
-                    break
+                        # Прерываем после первого найденного тега
+                        break
 
     async def help_command(self, update: Update, context: ContextTypes.DEFAULT_TYPE):
         """Справка по командам"""
@@ -565,7 +668,13 @@ class UniversalBot:
             "/groups - Показать состав групп\n"
             "/tags - Список доступных тегов\n\n"
             "💡 <b>Автоматические теги:</b>\n"
-            "Просто напишите: @команда, @тренер, @начальник и т.д.\n\n"
+            "Просто напишите:\n"
+            "• @команда, @команд, @команду\n"
+            "• @тренер, @тренера, @тренеры\n"
+            "• @стафф, @стаф, @штаб\n"
+            "• @хуёжник или @хуежник\n"
+            "• @начальник, @начальники\n"
+            "• И другие теги с альтернативными написаниями\n\n"
             "⏰ <b>Автоматика:</b>\n"
             "• Напоминания о ДР за 1 день\n"
             "• Поздравления в день рождения\n"
