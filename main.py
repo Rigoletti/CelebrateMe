@@ -29,7 +29,7 @@ groups_data = {
     "команда": {
         "members": [
             {"username": "welIweIIweIl"},
-            {"username": "winterwort"},
+            {"username": "@amajers"},
             {"username": "zhukov_nes"},
             {"username": "SHAHmirozdanie"}
         ],
@@ -830,3 +830,4 @@ def main():
 if __name__ == '__main__':
 
     main()
+
